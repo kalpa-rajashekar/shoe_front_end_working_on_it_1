@@ -1,0 +1,20 @@
+<h1>{{shoe.id == null ? 'Add' : 'Edit'}} Book - {{shoe.id}}</h1>
+
+<form>
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name" placeholder="Shoe Name" [(ngModel)]="shoe.name" name="name">
+
+  
+
+  <label for="price">Price</label>
+  <input type="text" class="form-control" id="price" placeholder="price" name="price" [(ngModel)]="shoe.price">
+
+  <div class="form-group" *ngIf="shoe.id == null">
+    <!-- only show this field on adding a book -->
+    <br>
+    <input type="file" (change)="onFileChanged($event)">
+    <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+  </div>
+  <br><br>
+  <button type="button" class="btn btn-success" (click)="saveShoe()">Save Shoe</button>
+</form>

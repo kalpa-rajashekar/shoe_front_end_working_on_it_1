@@ -1,0 +1,28 @@
+<h1>Shoe Admin</h1>
+<a class="btn btn-primary mb-3" (click)="addShoe()">Add New Shoe</a>
+<div class="container row">
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Shoe Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shoe of shoes">
+          <td>{{shoe.id}}</td>
+          <td>{{shoe.name}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="viewShoe(shoe.id)">Show Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <app-viewshoe *ngIf="action === 'view'" [shoes]="selectedShoes" (shoeDeletedEvent)="refreshData()"></app-viewshoe>
+    <app-addshoe *ngIf="action === 'edit' || action === 'add'" [shoe]="selectedShoes" (AddedEvent)="refreshData()"></app-addshoe>
+  </div>
+</div>

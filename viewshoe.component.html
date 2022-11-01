@@ -1,0 +1,23 @@
+<div class="shoeDetails">
+    <h2>Shoe Details</h2>
+    
+    <table>
+      <tr>
+        <td>Shoe Id</td><td>{{shoes.id}}</td>
+      </tr>
+      <tr>
+        <td>Shoe Name</td><td>{{shoes.name}}</td>
+      </tr>
+      
+      <tr>
+        <td>Shoe Price</td><td>{{shoes.price}}</td>
+      </tr>
+    </table>
+    <br>
+              <img src="{{shoes.retrievedImage}}" height="200" width="200">
+  <br><br>
+    
+    <a class="btn btn-small btn-warning" (click)="editShoe()">edit</a>   
+    <a class="btn btn-small btn-danger" (click)="deleteShoe()">delete</a>
+    
+  </div>
